@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="iBatisTestQueries.Employee">
+
+    <insert id="insert" parameterClass="iBatisTestQueries.Employee">
+       <!-- insert into EMPLOYEE(first_name, last_name, salary)
+        values (#first_name#, #last_name#, #salary#)-->
+
+        insert into ibatis.employee (emp_id, emp_name, emp_salary) values (#emp_id#, #emp_name#, #emp_salary#)
+
+        <selectKey resultClass="int" keyProperty="emp_id">
+            select last_insert_id() as emp_id
+        </selectKey>
+    </insert>
+
+    <resultMap id="result" class="iBatisTestQueries.Employee">
+        <result property="emp_id" column="emp_id"/>
+        <result property="emp_name" column="emp_name"/>
+        <result property="emp_salary" column="emp_salary"/>
+    </resultMap>
+
+    <select id="useResultMap" resultMap="result">
+        SELECT * FROM ibatis.employee
+        WHERE emp_id=#emp_id#
+    </select>
+</sqlMap>
