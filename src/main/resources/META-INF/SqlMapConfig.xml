@@ -10,7 +10,7 @@
             <property name="JDBC.Driver" value="com.mysql.jdbc.Driver"/>
             <property name="JDBC.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/ibatis"/>
             <property name="JDBC.Username" value="root"/>
-            <property name="JDBC.Password" value="jassi@110"/>
+            <property name="JDBC.Password" value="********"/>
 
         </dataSource>
     </transactionManager>
